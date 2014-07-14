@@ -1,5 +1,15 @@
 <h1>Sign In</h1>
 <%= form_for :session, url: session_path do |form| %>
+
+  <% if user.errors.any? %>
+    <%= pluralize(user.errors.count, "error") %> prevented your account from being created:
+    <ul>
+      <% user.errors.full_messages.each do |error_message| %>
+        <li><%= error_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div>
     <%= form.label :username %>
     <%= form.text_field :username %>

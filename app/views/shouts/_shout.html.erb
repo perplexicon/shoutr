@@ -1,0 +1,6 @@
+<%= div_for(shout) do %>
+  <fieldset>
+    <legend>Posted <%= time_ago_in_words(shout.created_at) %> ago</legend>
+    <p><%= shout.content %></p>
+  </fieldset>
+<% end %>
